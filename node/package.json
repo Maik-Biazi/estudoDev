@@ -1,0 +1,14 @@
+{
+  "name": "portal_noticias",
+  "version": "1.0.0",
+  "description": "site de noticia",
+  "main": "noticias.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Maik",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
