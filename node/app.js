@@ -1,16 +1,23 @@
 var express = require('express')
+var msg = require('./mod_teste')
+
 var app = express()
+
 app.set('view engine', 'ejs')
 
-app.get('/tecnologia',function(req, res){
-    res.render("secao/tecnologia")
+app.get('/',function(req, res){
+    res.render("home/index")
 })
 
-app.get('/',function(req, res){
-    res.send("<html><body>Portal de noticia</body></html>")
+app.get('/formulario_inclusao_noticia',function(req, res){
+    res.send("admin/form_add_noticia")
+})
+app.get('/noticias',function(req, res){
+    res.send("noticias/noticias")
 })
 
 
 app.listen(3000, function(){
-    console.log('servidor rodando com express')
+    console.log(msg())
+    
 })
