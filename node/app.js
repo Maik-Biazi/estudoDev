@@ -1,15 +1,14 @@
 var app = require('./config/server')
 
-app.get('/',function(req, res){
-    res.render("home/index")
-})
+var rotaNoticia = require('./app/routes/noticias')
+rotaNoticia(app)
 
-app.get('/formulario_inclusao_noticia',function(req, res){
-    res.send("admin/form_add_noticia")
-})
-app.get('/noticias',function(req, res){
-    res.send("noticias/noticias")
-})
+var rotaHome = require('./app/routes/home')
+rotaHome(app)
+
+var rotaFormInclusaoNoticia =require('./app/routes/formulario_inclusao_noticia')
+
+
 
 
 app.listen(3000, function(){
