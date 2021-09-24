@@ -1,52 +1,28 @@
-import React, { Component } from 'react'
-import './estilo.css'
 
+import React,{useState,useEffect} from "react"
 
+function App() {
 
-class App extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {}
-        this.quebraBiscoito = this.quebraBiscoito.bind(this)
-        this.frases = [
-            'Siga os bons e aprenda com eles.',
-            'O bom-senso vale mais do que muito conhecimento.',
-            'O riso é a menor distância entre duas pessoas.',
-            'Deixe de lado as preocupações e seja feliz.',
-            'Realize o óbvio, pense no improvável e conquiste o impossível.',
-            'Acredite em milagres, mas não dependa deles.',
-            'A maior barreira para o sucesso é o medo do fracasso.'
-        ]
+  const [tarefas,setTarefa] = useState([
+    'pagar a conta de luz',
+  'estudar React Hooks'])
+  const [input,setInput] =useState("")
 
-    }
-    quebraBiscoito(){
-    let state = this.state
-    let numeroAleatorio = Math.floor(Math.random()* this.frases.length)
-    state.textoFrase ='"'+this.frases[numeroAleatorio]+'"'
-    this.setState(state)
-    }
+  useEffect(()=>{
+    localStorage.setItem('tarefas',JSON.stringify(tarefas))
+  },[tarefas])
+  return (
+    <div >
+     <h1>
+       <ul>
+         {tarefas.map(tarefa =>(
+           <li key={tarefa}>{tarefa}</li>
+         ))}
 
-    render() {
-        return (
-            <div className="container">
-                <img src={require("./assets/biscoito.png").default} className="img" />
-                <Botao nome="abrir biscoito" acaoBtn={this.quebraBiscoito}/>
-                <h3 className="textoFrase">{this.state.textoFrase}</h3>
-            </div>
-        )
-    }
+       </ul>
+     </h1>
+    </div>
+  )
 }
 
-class Botao extends Component {
-    render() {
-        return (
-            <div>
-                <button onClick={this.props.acaoBtn}>{this.props.nome} </button>
-            </div>
-        )
-    }
-}
-
-
-
-export default App
+export default App;
