@@ -1,9 +1,9 @@
-import React from 'react';
+
 
 export default ()=>{
   return(
      <div>
-       ola mundo
+       <h1>Ola mundo</h1>
      </div>
   )
 }
