@@ -8,11 +8,12 @@ function SignIn() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    function handleSubmit(){
+    function handleSubmit(e){
+        e.preventDefault()
         alert('clicou')
     }
     return (
-        <div className="contianer">
+        
         <div className="container-center">
             <div className="login">
                 <div className="login-area">
@@ -27,7 +28,7 @@ function SignIn() {
                 <Link to="/register">Criar uma conta</Link>
             </div>
         </div>
-        </div>
+        
     );
 }
 

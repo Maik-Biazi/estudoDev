@@ -1,13 +1,17 @@
+import {useContext} from 'react'
 import { Route, Redirect } from 'react-router-dom'
+import {AuthContext} from '../contexts/auth'
 
 export default function RouteWrapper({
     coomponent: Component,
     isPrivate,
     ...rest
 }) {
-    const loanding = false;
-    const signed = false
-    if (loanding) {
+    const {signed,loading} = useContext(AuthContext)
+
+
+   
+    if (loading) {
         return (
             <div>
 
